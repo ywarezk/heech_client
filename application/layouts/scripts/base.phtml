@@ -1,0 +1,110 @@
+<?php
+/**
+ * the base layout - general html elements that are identical in all pages
+ * all the pages layout will extend this
+ */
+?> 
+
+<!DOCTYPE html>
+<html lang="en">  
+    <head> 
+        <?php  
+            $this->headTitle()->prepend('Heechikerz');
+            echo $this->headTitle(); 
+        ?> 
+        <?php 
+            echo $this->headMeta(); 
+        ?> 
+        <!--<meta property="og:image" content="http://www.nerdeez.com/img/90X90.png"/> -->
+        <?php 
+            /*$this->headLink(array('rel' => 'SHORTCUT ICON',
+                                  'href' => '/img/favicon.ico'), 
+                                  'PREPEND');
+            echo $this->headLink(); */
+        ?> 
+        <?php        
+            echo $this->headStyle(); 
+        ?> 
+        <?php 
+            //attach common javascriopt files
+            echo $this->headScript(); 
+        ?> 
+      
+         <!--<script src="//connect.facebook.net/en_US/all.js"></script>-->
+        <!--<script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36919461-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>-->
+    </head> 
+    <body>
+        
+        
+        
+        <?php /* NESTED LAYOUT SUPPORT */ ?> 
+        <?php 
+            if($this->layout()->nestedLayout){
+                $this->layout()->setLayout($this->layout()->nestedLayout);
+            } 
+            else{
+                $this->layout()->setLayout('default');
+            }
+            //echo $this->layout()->render();
+
+        ?> 
+        
+        
+         
+        
+        
+        <!-- begin loading screen -->
+        <div class="glass" style="z-index: 100;" id="loadingball">
+            <div class="loading" 
+                 style="left: 50%;position: relative;top: 50%;">
+            </div>
+        </div>
+        <!-- end loading screen  -->
+        
+        
+        
+        
+        <!-- Begin page -->
+        <div id="canvas">
+            
+            <!-- Begin header -->
+            <div id="header">
+                
+            </div>
+            <!-- End header --> 
+            
+            <!-- begin Body -->
+            <div id="body">
+                <?php echo $this->layout()->render(); ?>
+            </div>
+            <!-- end Body -->
+            
+            <!-- begin footer -->
+            <div id="footer">
+                
+            </div>
+            <!-- end footer -->
+            
+        </div>
+        <!-- End page -->
+        
+        <!-- common js initialization here -->
+        <script type="text/javascript">
+            initCommonActions();
+        </script>
+        <!-- end common -->
+        
+    </body> 
+</html>
