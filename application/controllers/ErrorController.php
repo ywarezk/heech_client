@@ -1,6 +1,17 @@
 <?php
 
-class ErrorController extends Zend_Controller_Action
+/**
+ * required in all my controllers
+ */
+require_once APPLICATION_PATH . '/controllers/Nerdeez_Controller_Action.php';
+
+/**
+ * The error plugin will redirect people here on error
+ * @author Yariv Katz
+ * @copyright Nerdeez.com
+ * @version 1.1
+ */
+class ErrorController extends Nerdeez_Controller_Action
 {
 
     public function errorAction()
@@ -8,7 +19,8 @@ class ErrorController extends Zend_Controller_Action
         $errors = $this->_getParam('error_handler');
         
         if (!$errors || !$errors instanceof ArrayObject) {
-            $this->view->message = 'You have reached the error page';
+            $this->view->message = $this->_aData['message'];
+            $this->view->title = $this->_aData['title'];
             return;
         }
         
@@ -19,13 +31,21 @@ class ErrorController extends Zend_Controller_Action
                 // 404 error -- controller or action not found
                 $this->getResponse()->setHttpResponseCode(404);
                 $priority = Zend_Log::NOTICE;
-                $this->view->message = 'Page not found';
+                $this->view->message = "The page you requested doesn't exist";
+                $this->view->title = "Page not found";
                 break;
             default:
                 // application error
                 $this->getResponse()->setHttpResponseCode(500);
                 $priority = Zend_Log::CRIT;
-                $this->view->message = 'Application error';
+                if(isset($this->_aData['title']) && isset($this->_aData['message'])){
+                    $this->view->message = $this->_aData['message'];
+                    $this->view->title = $this->_aData['title'];
+                }
+                else{
+                    $this->view->message = "The server doesn't know how to handle your request";
+                    $this->view->title = "Application error";
+                }
                 break;
         }
         
@@ -41,6 +61,10 @@ class ErrorController extends Zend_Controller_Action
         }
         
         $this->view->request   = $errors->request;
+        
+        if (!$this->isProduction()){
+            $this->view->exception="";
+        }
     }
 
     public function getLog()
