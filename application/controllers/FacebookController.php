@@ -34,6 +34,12 @@ class FacebookController extends Nerdeez_Controller_Action{
         
         //get the login url
         $this -> view -> sLoginUrl = $this->_facebook->getLoginUrl();
+    }
+    
+    /**
+     * take the drive details from the user
+     */
+    public function detailsAction(){
         
     }
     
