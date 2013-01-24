@@ -5,6 +5,11 @@
  */
 require_once 'Zend/Controller/Action.php';
 
+/**
+ * facebook php sdk located in library
+ */
+require_once("facebook.php");
+
 
 /**
  * enum for the data we get in post get params
@@ -61,6 +66,13 @@ abstract class Nerdeez_Controller_Action extends Zend_Controller_Action{
      */
     protected $_aData = array();
     
+    /**
+     * this will hold the facebook php sdk instance
+     * @var Facebook facebook php sdk
+     */
+    protected $_facebook = null;
+
+
     /**
      * this array will hold all the possible params from get post
      * @var Array 
@@ -166,9 +178,26 @@ abstract class Nerdeez_Controller_Action extends Zend_Controller_Action{
             $this -> _aData[$sName] = $iValue;
         }
         
+        //init the facebook sdk
+        $this->_facebook = new Facebook(array(
+            'appId'         => $this->getFBAppID(),
+            'secret'        => $this->getFromConfig('facebook_app_secret'),
+            'fileUpload'    => FALSE,
+        ));
+        
+        //if the user is logged in then continue else redirect to login page
+        if(!$this->isFBLoggedIn()){
+            if ($this->getRequest()->getActionName() !== 'login' 
+                    || $this->getRequest() ->getControllerName() != 'facebook'){
+                $this->_redirector->gotoSimple('login', 'facebook');
+            }
+        }
+        
         //set the layout
         $layout = new Zend_Layout();
         $layout->setLayoutPath(APPLICATION_PATH . '/layouts/scripts/default.phtml');
+        $layout -> sUrl = $this->sGetUrl();
+        $layout -> sFBID = $this ->getFBAppID();
         
         //if there is error values redirect them to the error page
         if(isset($this->_aData['error_reason'])){
@@ -484,11 +513,52 @@ abstract class Nerdeez_Controller_Action extends Zend_Controller_Action{
      * will return a facebook  id based on this ip
      */
     public function getFBAppID(){
-        if ($this ->isProduction()){
-            return $this->getFromConfig('production_facebook_id');
+        return $this->getFromConfig('facebook_app_id');
+    }
+    
+    private function parse_signed_request($signed_request) {
+        list($encoded_sig, $payload) = explode('.', $signed_request, 2); 
+
+        // decode the data
+        $sig = $this -> base64_url_decode($encoded_sig);
+        $data = json_decode($this -> base64_url_decode($payload), true);
+
+        if (strtoupper($data['algorithm']) !== 'HMAC-SHA256') {
+            $this->_redirector->gotoSimple('error', 'error', NULL, array(
+                'title'     => 'Signed request error',
+                'message'   => 'Facebook request varification failure',
+            ));
+            return;
+        }
+
+        // Adding the verification of the signed_request below
+        $expected_sig = hash_hmac('sha256', $payload, $this->getFromConfig('facebook_app_secret'), $raw = true);
+        if ($sig !== $expected_sig) {
+            $this->_redirector->gotoSimple('error', 'error', NULL, array(
+                'title'     => 'Signed request error',
+                'message'   => 'Facebook request varification failure',
+            ));
+            return;
+        }
+
+        return $data;
+    }
+
+    private function base64_url_decode($input) {
+        return base64_decode(strtr($input, '-_', '+/'));
+    }
+    
+    /**
+     * check if the user is logged in with his facebook account
+     * @return Boolean true if logged in false if not
+     */
+    protected function isFBLoggedIn(){
+        $user_id = $this -> _facebook->getUser();
+        if($user_id){
+            return TRUE;
         }
         else{
-            return $this->getFromConfig('development_facebook_id');
+            return FALSE;
         }
     }
     
