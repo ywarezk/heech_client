@@ -22,12 +22,15 @@
                                   'PREPEND');
             echo $this->headLink(); */
         ?> 
-        <?php        
+        <?php  
+            
             echo $this->headStyle(); 
         ?> 
+        <link rel="stylesheet/less" type="text/css" href="/styles/styles.less" />
         <?php 
             //attach common javascriopt files
             echo $this->headScript(); 
+            
         ?> 
       
          <!--<script src="//connect.facebook.net/en_US/all.js"></script>-->
@@ -81,7 +84,11 @@
             
             <!-- Begin header -->
             <div id="header">
-                
+                <div style="margin: 0 auto; height: 100%; width: 245px;">
+                    <a href="/" >
+                        <img src="/img/logo_heetchikerz.png" />
+                    </a>
+                </div>
             </div>
             <!-- End header --> 
             
