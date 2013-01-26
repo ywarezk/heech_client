@@ -65,3 +65,104 @@ html{
     color: #CCCCCC;
 }
 
+.front-searchcourse .searchcourse {
+    height: 36px;
+    width: 100%;
+}
+.placeholding-input {
+    overflow: visible;
+    position: relative;
+}
+
+.flex-table-input {
+    -moz-box-sizing: border-box;
+    display: block;
+    height: 30px;
+    line-height: normal;
+    width: 100%;
+    padding-left: 4px;
+}
+
+.placeholding-input .placeholder {
+    -moz-user-select: none;
+    bottom: 1px;
+    color: #999999;
+    cursor: text;
+    font-size: 13px;
+    height: 20px;
+    left: 2px;
+    line-height: 20px;
+    padding: 4px;
+    pointer-events: none;
+    position: absolute;
+    right: 1px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    top: 1px;
+    transition: opacity 0.1s ease 0s, font-size 0.1s ease 0s;
+    white-space: nowrap;
+}
+
+.front-searchcourse .searchcourse {
+    height: 27px; 
+    width: 100%;
+}
+
+
+
+
+.front-card .text-input:focus {
+    border: 1px solid #E20145;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(226, 1, 69, 0.6);
+    
+}
+
+.placeholding-input input:focus + .placeholder {
+    opacity: 0.6;
+}
+
+.primary-btn:active {
+    background-image: none;
+    border-color: #bc001d;
+}
+
+.primary-btn:hover, .primary-btn:focus {
+    background-color: #d00028;
+    background-image: -moz-linear-gradient(#EF1F49, #d00028);
+    background-repeat: repeat-x;
+    border-color: #bc001d;
+    color: #CCCCCC;
+}
+
+.primary-btn, .following.first-hover .follow-btn:hover, .following .follow-btn, .following .follow-button.cancel-hover-style:hover, .following .follow-button {
+  background-color: #E20145;
+  background-image: -moz-linear-gradient(#EF1F49, #E20145);
+  background-repeat: repeat-x;
+  border-color: #DF002E;
+  color: #FFFFFF;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.has-content .placeholder, .hasome .placeholder {
+    font-size: 0 !important;
+    opacity: 0;
+    z-index: -1;
+}
+
+
+.filebrowserbutton{
+    background-color: #E62A59;
+    border: medium none;
+    color: white;
+    font-size: 15px;
+    height: 57px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.filebrowserbutton:hover{
+    color: #CCCCCC;
+}
+
+.ui-datepicker{
+z-index:2 !important;
+}

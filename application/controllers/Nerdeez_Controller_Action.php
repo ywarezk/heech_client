@@ -83,6 +83,7 @@ abstract class Nerdeez_Controller_Action extends Zend_Controller_Action{
         array('name' => 'error_description' , 'type' => Nerdeez_ParamTypes::STRING , 'length' => 300) ,
         array('name' => 'message' , 'type' => Nerdeez_ParamTypes::STRING , 'length' => 300) ,
         array('name' => 'title' , 'type' => Nerdeez_ParamTypes::STRING , 'length' => 100) ,
+        array('name' => 'type' , 'type' => Nerdeez_ParamTypes::STRING , 'length' => 20) ,
     );
     
     /**
@@ -351,6 +352,7 @@ abstract class Nerdeez_Controller_Action extends Zend_Controller_Action{
         
         //set all the js files and css files
         $layout = new Zend_Layout();
+        //$layout -> getView() -> headLink()->prependStylesheet($this->view->baseUrl('styles/jquery-ui.css'));
         if ($this -> isProduction()){
             $layout -> getView() -> headScript() -> appendFile($this->view->baseUrl('js/static.min.js'));
             //$layout -> getView() -> headLink()->prependStylesheet($this->view->baseUrl('styles/static.min.css'));
@@ -360,9 +362,10 @@ abstract class Nerdeez_Controller_Action extends Zend_Controller_Action{
             $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/spin.min.js'));
             $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/tooltip.js'));
             $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/jquery.validate.js'));
-            $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/jquery-1.9.0.min.js'));
             $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/less-1.3.3.min.js'));
-            //$layout -> getView() -> headLink()->prependStylesheet($this->view->baseUrl('styles/styles.less'));
+            $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/jquery-ui.js'));
+            $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/jquery-1.9.0.min.js'));
+            
         }
     }
     

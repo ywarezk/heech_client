@@ -40,7 +40,13 @@ class FacebookController extends Nerdeez_Controller_Action{
      * take the drive details from the user
      */
     public function detailsAction(){
+        //pass the type to the view
+        $this->view->sType = $this->_aData['type'];
         
+        //load the css needed for the calendar
+        $layout = new Zend_Layout();
+        $layout -> getView() -> headLink()->prependStylesheet($this->view->baseUrl('styles/jquery-ui.css'));
+        $layout -> getView() -> headLink()->prependStylesheet($this->view->baseUrl('styles/jquery.ui.timepicker.css'));
     }
     
 }
