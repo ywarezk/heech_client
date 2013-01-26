@@ -38,7 +38,7 @@ function initCommonActions(){
         periodSeparator: ' ',         // The character to use to separate the time from the time period.
         defaultTime: 'now',         // Used as default time when input field is empty or for inline timePicker
         // trigger options
-        showOn: 'focus',              // Define when the timepicker is shown.
+        showOn: 'both',              // Define when the timepicker is shown.
                                       // 'focus': when the input gets focus, 'button' when the button trigger element is clicked,
                                       // 'both': when the input gets focus and when the button is clicked.
         button: '#details_button_time',                 // jQuery selector that acts as button trigger. ex: '#trigger_button'
@@ -53,11 +53,6 @@ function initCommonActions(){
         atPosition: 'left bottom',    // Corner of the input to position
 
         // Events
-        beforeShow: beforeShowCallback, // Callback function executed before the timepicker is rendered and displayed.
-        onSelect: onSelectCallback,   // Define a callback function when an hour / minutes is selected.
-        onClose: onCloseCallback,     // Define a callback function when the timepicker is closed.
-        onHourShow: onHourShow,       // Define a callback to enable / disable certain hours. ex: function onHourShow(hour)
-        onMinuteShow: onMinuteShow,   // Define a callback to enable / disable certain minutes. ex: function onMinuteShow(hour, minute)
 
         // custom hours and minutes
         hours: {

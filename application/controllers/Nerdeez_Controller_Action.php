@@ -363,6 +363,7 @@ abstract class Nerdeez_Controller_Action extends Zend_Controller_Action{
             $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/tooltip.js'));
             $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/jquery.validate.js'));
             $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/less-1.3.3.min.js'));
+            $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/jquery.ui.timepicker.js'));
             $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/jquery-ui.js'));
             $layout -> getView() -> headScript() -> prependFile($this->view->baseUrl('js/jquery-1.9.0.min.js'));
             

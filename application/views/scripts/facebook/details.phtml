@@ -126,28 +126,31 @@
                 </div>
             </td>
             <td>
-                <?php if($this->sType == 'driver'): ?>
-                    <span style="float: left;">
-                        At:
-                    </span>
-                    <div class="front-card" style="float: right; width: 157px;">
-                        <div class="placeholding-input searchcourse flex-table-form">
-                            <input 
-                                type="text" 
-                                autocomplete="off" 
-                                tabindex="6" 
-                                style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
-                                dir="ltr" 
-                                spellcheck="false" 
-                                title="Hour" 
-                                name="hour" 
-                                id="details_input_hour" 
-                                class="text-input flex-table-input" 
-                                maxlength="300" />
-                            <span style="font-size: 15px; top: -1px;" class="placeholder">HH/MM</span>
-                        </div>
+                <span style="float: left;">
+                    At:
+                </span>
+                <div class="front-card" style="width: 118px; float: left; margin-left: 5px;">
+                    <div class="placeholding-input searchcourse flex-table-form">
+                        <input 
+                            type="text" 
+                            autocomplete="off" 
+                            tabindex="6" 
+                            style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
+                            dir="ltr" 
+                            spellcheck="false" 
+                            title="Hour" 
+                            name="hour" 
+                            id="details_input_hour" 
+                            class="text-input flex-table-input" 
+                            maxlength="300" />
+                        <span style="font-size: 15px; top: -1px;" class="placeholder">HH:MM</span>
                     </div>
-                <?php endif; ?>
+                </div>
+                <div style="width: 32px; float: right;">
+                    <a href="javascript:void(0)" id="details_button_time">
+                        <img src="/img/clock.png"  height="26" />
+                    </a>
+                </div>
             </td>
         </tr>
     </table>
