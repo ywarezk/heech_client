@@ -5,159 +5,159 @@
         <img src="/img/button_join_up.png" width="281" height="248" />
     <?php endif; ?>
 </div>
+<form method="post" action="/facebook/savedetails">
+    <div class="dialog searchcourse front-searchcourse" style="height: 310px; position: relative; top: -34px;">
+        <h1 style="text-align: center; position: relative; top: 95px; font-size: 23px;">
+            Where are you going?
+        </h1>
+        <table style="position: relative; top: 110px; width: 600px; margin: 0px auto;">
+            <tr>
+                <td style="width: 230px; text-align: right; padding-right: 10px;">
+                    Leaving from:
+                </td>
+                <td style="width: 200px; padding-right: 12px;">
+                    <div class="front-card">
+                        <div class="placeholding-input searchcourse flex-table-form">
+                            <input 
+                                type="text" 
+                                autocomplete="off" 
+                                tabindex="1" 
+                                style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
+                                dir="ltr" 
+                                spellcheck="false" 
+                                title="Origin Country" 
+                                name="origin_country" 
+                                id="details_input_origin_country" 
+                                class="text-input flex-table-input" 
+                                maxlength="300" />
+                            <span style="font-size: 15px; top: -1px;" class="placeholder">Country</span>
+                        </div>
+                    </div>
+                </td>
+                <td style="width: 200px">
+                    <div class="front-card">
+                        <div class="placeholding-input searchcourse flex-table-form">
+                            <input 
+                                type="text" 
+                                autocomplete="off" 
+                                tabindex="2" 
+                                style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
+                                dir="ltr" 
+                                spellcheck="false" 
+                                title="Origin City" 
+                                name="origin_city" 
+                                id="details_input_origin_city" 
+                                class="text-input flex-table-input" 
+                                maxlength="300" />
+                            <span style="font-size: 15px; top: -1px;" class="placeholder">City</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 132px; text-align: right; padding-right: 10px; padding-top: 15px; padding-bottom: 15px;">
+                    Destination:
+                </td>
+                <td style="width: 200px; padding-right: 12px;">
+                    <div class="front-card">
+                        <div class="placeholding-input searchcourse flex-table-form">
+                            <input 
+                                type="text" 
+                                autocomplete="off" 
+                                tabindex="3" 
+                                style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
+                                dir="ltr" 
+                                spellcheck="false" 
+                                title="Destination Country" 
+                                name="destination_country" 
+                                id="details_input_destination_country" 
+                                class="text-input flex-table-input" 
+                                maxlength="300" />
+                            <span style="font-size: 15px; top: -1px;" class="placeholder">Country</span>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="front-card">
+                        <div class="placeholding-input searchcourse flex-table-form">
+                            <input 
+                                type="text" 
+                                autocomplete="off" 
+                                tabindex="4" 
+                                style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
+                                dir="ltr" 
+                                spellcheck="false" 
+                                title="Destination City" 
+                                name="destination_city" 
+                                id="details_input_destination_city" 
+                                class="text-input flex-table-input" 
+                                maxlength="300" />
+                            <span style="font-size: 15px; top: -1px;" class="placeholder">City</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; padding-right: 10px;">
+                    When are you leaving?
+                </td>
+                <td style="width: 200px; padding-right: 12px;">
+                    <div class="front-card" style="float: left;width: 150px;">
+                        <div class="placeholding-input searchcourse flex-table-form">
+                            <input 
+                                type="text" 
+                                autocomplete="off" 
+                                tabindex="5" 
+                                style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
+                                dir="ltr" 
+                                spellcheck="false" 
+                                title="Date" 
+                                name="date" 
+                                id="details_input_date" 
+                                class="text-input flex-table-input" 
+                                maxlength="300" />
+                            <span style="font-size: 15px; top: -1px;" class="placeholder">DD/MM/YYYY</span>
+                        </div>
+                    </div>
+                    <div style="width: 32px; float: right;">
+                        <a href="javascript:void(0)" onclick="showCaledar();">
+                            <img src="/img/calendar.png"  height="26" />
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <span style="float: left;">
+                        At:
+                    </span>
+                    <div class="front-card" style="width: 118px; float: left; margin-left: 5px;">
+                        <div class="placeholding-input searchcourse flex-table-form">
+                            <input 
+                                type="text" 
+                                autocomplete="off" 
+                                tabindex="6" 
+                                style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
+                                dir="ltr" 
+                                spellcheck="false" 
+                                title="Hour" 
+                                name="hour" 
+                                id="details_input_hour" 
+                                class="text-input flex-table-input" 
+                                maxlength="300" />
+                            <span style="font-size: 15px; top: -1px;" class="placeholder">HH:MM</span>
+                        </div>
+                    </div>
+                    <div style="width: 32px; float: right;">
+                        <a href="javascript:void(0)" id="details_button_time">
+                            <img src="/img/clock.png"  height="26" />
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 
-<div class="dialog searchcourse front-searchcourse" style="height: 310px; position: relative; top: -34px;">
-    <h1 style="text-align: center; position: relative; top: 95px; font-size: 23px;">
-        Where are you going?
-    </h1>
-    <table style="position: relative; top: 110px; width: 600px; margin: 0px auto;">
-        <tr>
-            <td style="width: 230px; text-align: right; padding-right: 10px;">
-                Leaving from:
-            </td>
-            <td style="width: 200px; padding-right: 12px;">
-                <div class="front-card">
-                    <div class="placeholding-input searchcourse flex-table-form">
-                        <input 
-                            type="text" 
-                            autocomplete="off" 
-                            tabindex="1" 
-                            style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
-                            dir="ltr" 
-                            spellcheck="false" 
-                            title="Origin Country" 
-                            name="origin_country" 
-                            id="details_input_origin_country" 
-                            class="text-input flex-table-input" 
-                            maxlength="300" />
-                        <span style="font-size: 15px; top: -1px;" class="placeholder">Country</span>
-                    </div>
-                </div>
-            </td>
-            <td style="width: 200px">
-                <div class="front-card">
-                    <div class="placeholding-input searchcourse flex-table-form">
-                        <input 
-                            type="text" 
-                            autocomplete="off" 
-                            tabindex="2" 
-                            style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
-                            dir="ltr" 
-                            spellcheck="false" 
-                            title="Origin City" 
-                            name="origin_city" 
-                            id="details_input_origin_city" 
-                            class="text-input flex-table-input" 
-                            maxlength="300" />
-                        <span style="font-size: 15px; top: -1px;" class="placeholder">City</span>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 132px; text-align: right; padding-right: 10px; padding-top: 15px; padding-bottom: 15px;">
-                Destination:
-            </td>
-            <td style="width: 200px; padding-right: 12px;">
-                <div class="front-card">
-                    <div class="placeholding-input searchcourse flex-table-form">
-                        <input 
-                            type="text" 
-                            autocomplete="off" 
-                            tabindex="3" 
-                            style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
-                            dir="ltr" 
-                            spellcheck="false" 
-                            title="Destination Country" 
-                            name="destination_country" 
-                            id="details_input_destination_country" 
-                            class="text-input flex-table-input" 
-                            maxlength="300" />
-                        <span style="font-size: 15px; top: -1px;" class="placeholder">Country</span>
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="front-card">
-                    <div class="placeholding-input searchcourse flex-table-form">
-                        <input 
-                            type="text" 
-                            autocomplete="off" 
-                            tabindex="4" 
-                            style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
-                            dir="ltr" 
-                            spellcheck="false" 
-                            title="Destination City" 
-                            name="destination_city" 
-                            id="details_input_destination_city" 
-                            class="text-input flex-table-input" 
-                            maxlength="300" />
-                        <span style="font-size: 15px; top: -1px;" class="placeholder">City</span>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: right; padding-right: 10px;">
-                When are you leaving?
-            </td>
-            <td style="width: 200px; padding-right: 12px;">
-                <div class="front-card" style="float: left;width: 150px;">
-                    <div class="placeholding-input searchcourse flex-table-form">
-                        <input 
-                            type="text" 
-                            autocomplete="off" 
-                            tabindex="5" 
-                            style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
-                            dir="ltr" 
-                            spellcheck="false" 
-                            title="Date" 
-                            name="date" 
-                            id="details_input_date" 
-                            class="text-input flex-table-input" 
-                            maxlength="300" />
-                        <span style="font-size: 15px; top: -1px;" class="placeholder">DD/MM/YYYY</span>
-                    </div>
-                </div>
-                <div style="width: 32px; float: right;">
-                    <a href="javascript:void(0)" onclick="showCaledar();">
-                        <img src="/img/calendar.png"  height="26" />
-                    </a>
-                </div>
-            </td>
-            <td>
-                <span style="float: left;">
-                    At:
-                </span>
-                <div class="front-card" style="width: 118px; float: left; margin-left: 5px;">
-                    <div class="placeholding-input searchcourse flex-table-form">
-                        <input 
-                            type="text" 
-                            autocomplete="off" 
-                            tabindex="6" 
-                            style="width: 99%;height: 100%;font-size: 17px;font-weight: normal;border-radius: 3px 3px 3px 3px;box-shadow: none; " 
-                            dir="ltr" 
-                            spellcheck="false" 
-                            title="Hour" 
-                            name="hour" 
-                            id="details_input_hour" 
-                            class="text-input flex-table-input" 
-                            maxlength="300" />
-                        <span style="font-size: 15px; top: -1px;" class="placeholder">HH:MM</span>
-                    </div>
-                </div>
-                <div style="width: 32px; float: right;">
-                    <a href="javascript:void(0)" id="details_button_time">
-                        <img src="/img/clock.png"  height="26" />
-                    </a>
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
-
-<div style="margin: 0px auto; width: 120px;">
-    <button onclick="submitDetails()" class="filebrowserbutton">
-        Submit
-    </button>
-</div>
+    <div style="margin: 0px auto; width: 120px;">
+        <input type="submit" value="Submit" class="filebrowserbutton"/>
+    </div>
+    <input type="hidden" name="type" value="<?php echo $this -> sType; ?>" />
+</form>

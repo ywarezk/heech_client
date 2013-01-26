@@ -33,7 +33,9 @@ class FacebookController extends Nerdeez_Controller_Action{
         }
         
         //get the login url
-        $this -> view -> sLoginUrl = $this->_facebook->getLoginUrl();
+        $this -> view -> sLoginUrl = $this->_facebook->getLoginUrl(
+                 array('scope' => 'publish_stream')
+        );
     }
     
     /**
@@ -47,6 +49,16 @@ class FacebookController extends Nerdeez_Controller_Action{
         $layout = new Zend_Layout();
         $layout -> getView() -> headLink()->prependStylesheet($this->view->baseUrl('styles/jquery-ui.css'));
         $layout -> getView() -> headLink()->prependStylesheet($this->view->baseUrl('styles/jquery.ui.timepicker.css'));
+    }
+    
+    /**
+     * when the user submits the details of the drive
+     */
+    public function savedetailsAction(){
+        $this->disableView();
+        
+        //collect all the params
+        
     }
     
 }

@@ -194,6 +194,8 @@ abstract class Nerdeez_Controller_Action extends Zend_Controller_Action{
             }
         }
         
+        //$this->_facebook->
+        
         //set the layout
         $layout = new Zend_Layout();
         $layout->setLayoutPath(APPLICATION_PATH . '/layouts/scripts/default.phtml');
